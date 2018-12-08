@@ -1,0 +1,17 @@
+﻿@model Lojinha.Core.Models.Carrinho
+
+@{
+    ViewData["Title"] = "Carrinho";
+}
+
+<div class="row">
+    <h3>Pedido recebido com sucesso: @Guid.NewGuid()</h3>
+    <ul>
+        @foreach(var item in Model.Items)
+        {
+        <li>@item.Produto.Nome <small>x @item.Quantidade</small></li>
+        }
+    </ul>
+    
+    <div>Total: @Model.Items.Sum(x => x.Produto.Preco * x.Quantidade)</div>
+</div>
